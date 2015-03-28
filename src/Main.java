@@ -15,9 +15,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String solutionsFolder = "C:\\Users\\Dimitar\\Documents\\Tester\\hw00";
-        String inputsFolder = "C:\\Users\\Dimitar\\Documents\\Tester\\hw00_tests\\input";
-        String outputsFolder = "C:\\Users\\Dimitar\\Documents\\Tester\\hw00_tests\\output";
+        String solutionsFolder = "C:\\Users\\Dimitar\\Documents\\Tester\\hw01";
+        String inputsFolder = "C:\\Users\\Dimitar\\Documents\\Tester\\hw01_tests\\input";
+        String outputsFolder = "C:\\Users\\Dimitar\\Documents\\Tester\\hw01_tests\\output";
 
         Tester tester = new Tester();
         FilesRetriever fr = new FilesRetriever();
@@ -50,9 +50,9 @@ public class Main {
                     }
 
                 }
-                System.out.println(String.format(" %d", points));
+                System.out.println(String.format(" %d points", points));
             } else {
-                System.out.print(String.format("CE%12d\n", points));
+                System.out.print(String.format("CE%12d points\n", points));
             }
         });
 

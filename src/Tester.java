@@ -1,5 +1,4 @@
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,7 +19,10 @@ public class Tester {
         ProcessBuilder pb = new ProcessBuilder(compileCommand);
         CommandExecutor executor = new CommandExecutor(Arrays.asList(compileCommand), null);
         executor.executeCommand();
-        return (executor.getError().equals(""));
+        if (executor.getError().length() != 0) {
+            System.out.print(executor.getError());
+        }
+        return (executor.getError().length() == 0);
 
     }
 

@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.util.logging.StreamHandler;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,7 +15,7 @@ import java.util.logging.StreamHandler;
  *
  * @author Dimitar
  */
-public class ThreadedSteamHandler extends Thread {
+public class ThreadedStreamHandler extends Thread {
 
     private InputStream inputStream;
     private String inputParams;
@@ -25,11 +24,11 @@ public class ThreadedSteamHandler extends Thread {
     private StringBuilder outputBuilder = new StringBuilder();
     private boolean writeRequest = false;
 
-    ThreadedSteamHandler(InputStream inputStream) {
+    ThreadedStreamHandler(InputStream inputStream) {
         this.inputStream = inputStream;
     }
 
-    public ThreadedSteamHandler(InputStream inputStream, OutputStream outputStream, String inputParams) {
+    public ThreadedStreamHandler(InputStream inputStream, OutputStream outputStream, String inputParams) {
         this.inputStream = inputStream;
         this.outputStream = outputStream;
         this.printWriter = new PrintWriter(outputStream);

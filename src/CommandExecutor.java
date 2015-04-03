@@ -20,8 +20,8 @@ public class CommandExecutor {
     private Process process;
     private final List<String> commands;
     private final String inputParams;
-    private ThreadedSteamHandler inputStreamHandler;
-    private ThreadedSteamHandler errorStreamHandler;
+    private ThreadedStreamHandler inputStreamHandler;
+    private ThreadedStreamHandler errorStreamHandler;
 
     public CommandExecutor(List<String> commands, String inputParams) {
         this.commands = commands;
@@ -39,11 +39,11 @@ public class CommandExecutor {
             InputStream errorStream = process.getErrorStream();
 
             if (inputParams != null) {
-                inputStreamHandler = new ThreadedSteamHandler(inputStream, stdOutput, inputParams);
+                inputStreamHandler = new ThreadedStreamHandler(inputStream, stdOutput, inputParams);
             } else {
-                inputStreamHandler = new ThreadedSteamHandler(inputStream);
+                inputStreamHandler = new ThreadedStreamHandler(inputStream);
             }
-            errorStreamHandler = new ThreadedSteamHandler(errorStream);
+            errorStreamHandler = new ThreadedStreamHandler(errorStream);
 
             inputStreamHandler.start();
             errorStreamHandler.start();

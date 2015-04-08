@@ -26,15 +26,15 @@ public class Tester {
 
     }
 
-    public boolean test(List<String> command, String input, String output) {
+    public ErrorMessage test(List<String> command, String input, String output) {
         CommandExecutor executor = new CommandExecutor(command, input);
         executor.executeCommand();
         String result = executor.getResult();
 
-        if (result.equals(output)) {
-            return true;
+        if (result.equals("")) {
+            return ErrorMessage.RuntimeError;
         } else {
-            return false;
+            return (result.equals(output) ? ErrorMessage.Ok : ErrorMessage.No);
         }
 
     }

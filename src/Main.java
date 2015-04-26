@@ -15,8 +15,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String TASK_NAME = "matrix";
-        
+        String TASK_NAME = "rational";
+
         String solutionsFolder = "C:\\Users\\Dimitar\\Documents\\Tester\\hw01_" + TASK_NAME;
         String inputsFolder = "C:\\Users\\Dimitar\\Documents\\Tester\\hw01_" + TASK_NAME + "_tests\\input";
         String outputsFolder = "C:\\Users\\Dimitar\\Documents\\Tester\\hw01_" + TASK_NAME + "_tests\\output";
@@ -37,7 +37,8 @@ public class Main {
             String exe = solutionsFolder + "\\" + fileName;
             String cpp = exe + ".cpp";
 
-            System.out.print(String.format("%s:", fileName));
+            String[] tokens = fileName.split("_");
+            System.out.print(String.format("%s:", (fileName.contains("_") ? tokens[tokens.length - 1] : fileName)));
 
             if (tester.compile(cpp, exe)) {
 
@@ -50,10 +51,9 @@ public class Main {
                     if (outcome == ErrorMessage.Ok) {
                         System.out.print(String.format("\t%s", outcome));
                         points++;
-                    } else if (outcome == ErrorMessage.No){
+                    } else if (outcome == ErrorMessage.No) {
                         System.out.print(String.format("\t%s", outcome));
-                    }
-                    else{
+                    } else {
                         System.out.print(String.format("\t%s", outcome));
                     }
 

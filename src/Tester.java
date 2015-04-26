@@ -15,7 +15,7 @@ public class Tester {
 
     public boolean compile(String fullFile, String fileName) {
 
-        String[] compileCommand = new String[]{"g++", fullFile, "-o", fileName};
+        String[] compileCommand = new String[]{"g++", fullFile, "-o", fileName, "-std=c++11"};
         ProcessBuilder pb = new ProcessBuilder(compileCommand);
         CommandExecutor executor = new CommandExecutor(Arrays.asList(compileCommand), null);
         executor.executeCommand();
